@@ -1,7 +1,7 @@
 const routes = require('express').Router()
-const { getTodos } = require('./handler')
+const { getTodos, addTodo } = require('./handler')
 
-// routes.post('/add', addTodo)
 routes.get('/', getTodos)
+routes.post('/add', addTodo)
 
 module.exports = routes;
