@@ -176,6 +176,6 @@ response error:
 ```json
 {
     "status": "error",
-    "message": "error deleted todo, id not found"
+    "message": "error deleting todo, id not found"
 }
 ```
