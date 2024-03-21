@@ -106,4 +106,28 @@ const updateTodoById = async (req, res) => {
         })
     }
 }
-module.exports = { getTodos, addTodo, getTodoById, updateTodoById };
+
+const deleteTodoById = async (req, res) => {
+    const { id } = req.params;
+    const query = {
+        name: 'delete-todo',
+        text: `DELETE FROM ${tableName} WHERE id = $1`,
+        values: [id]
+    }
+    const response = await client.query(query);
+    if (response.rowCount === 1) {
+        res.status(200);
+        return res.send({
+            status: 'success',
+            message: 'todo deleted successfully',
+        })
+    } else {
+        res.status(400);
+        return res.send({
+            status: 'error',
+            message: 'error deleting todo, id not found',
+        })
+    }
+}
+
+module.exports = { getTodos, addTodo, getTodoById, updateTodoById, deleteTodoById };
