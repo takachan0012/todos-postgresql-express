@@ -33,7 +33,7 @@ const addTodo = async (req, res) => {
 const getTodos = async (req, res) => {
     const query = {
         name: 'fetch-todos',
-        text: `SELECT * FROM ${tableName}`
+        text: `SELECT * FROM ${tableName} ORDER BY updatedat DESC`
     }
     const response = await client.query(query);
     if (response.rowCount === 0) {
@@ -61,7 +61,7 @@ const getTodoById = async (req, res) => {
     }
     const response = await client.query(query);
     if (response.rowCount === 0) {
-        res.status(400);
+        res.status(404);
         return res.send({
             status: 'error',
             message: 'error todo not found',
