@@ -123,9 +123,7 @@ body request:
 {
     "title": "string",
     "description": "string",
-    "isFinished": "boolean",
-    "createdAt": "string",
-    "updatedAt": "string"
+    "isFinished": "boolean"
 }
 ```
 
@@ -145,7 +143,7 @@ response fail:
 ```json
 {
     "status": "error",
-    "message": "error updated todo, please add title"
+    "message": "error updating todo, please add title correctly"
 }
 ```
 2. client attach id not found   
