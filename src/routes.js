@@ -1,5 +1,7 @@
-const routes = require('express').Router()
-const { getTodos, addTodo, getTodoById, updateTodoById, deleteTodoById } = require('./handler')
+const routes = require('express').Router();
+const {
+  getTodos, addTodo, getTodoById, updateTodoById, deleteTodoById,
+} = require('./handler');
 
 routes.get('/todos', getTodos);
 routes.post('/add', addTodo);
