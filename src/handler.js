@@ -37,13 +37,6 @@ const getTodos = async (req, res) => {
     text: `SELECT * FROM ${tableName} ORDER BY updatedat DESC`,
   };
   const response = await client.query(query);
-  if (response.rowCount === 0) {
-    res.status(400);
-    return res.send({
-      status: 'error',
-      message: 'error fetching todos',
-    });
-  }
   res.status(200);
   return res.send({
     status: 'success',
